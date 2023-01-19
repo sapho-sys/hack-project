@@ -1,9 +1,102 @@
-
 function theParkers(db) {
-    const data = db;
-    let errorMsg = '';
-    let employeeName = '';
-    let strName='';
+  const client = db;
+  let errorMsg = "";
+  let employeeName = "";
+  let strName = "";
+
+  async function getAllParking() {
+    client.query("SELECT * FROM parking_table", (err, res) => {
+      if (err) {
+        console.log(err);
+      } else {
+        return res.rows;
+      }
+    });
+  }
+
+  async function createParking() {
+    await client.query(
+      "CREATE TABLE parking_table (parking_id SERIAL PRIMARY KEY, is_parked BOOLEAN, timeleft TIME, parking_number TEXT"
+    ),
+      (err, res) => {
+        if (err) {
+          console.log(err);
+        }
+      };
+  }
+
+  //push a user object here i guess lol
+  // making parking_id 1 by default.
+
+  //{ name: "Joshua", surname: "Bode" , licence_plate: "CA11111" , parking_id: 1}
+  async function addUser(user) {
+    try {
+      await client.query(`INSERT INTO user_table (name, surname, licence_plate, parking_id) 
+      VALUES ('${user.name}', '${user.surname}', '${user.licence_plate}', ${
+        user.parking_id || 0
+      })`);
+      console.log("User has been added successfully");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+  async function updateParking(parkingId, isParked, timeLeft, userId) {
+    try {
+      await client.query(`BEGIN`);
+      await client.query(`UPDATE parking_table SET is_parked = ${isParked}, timeleft = '${timeLeft}' WHERE parking_id = ${parkingId}`);
+      await client.query(`UPDATE user_table SET parking_id = ${parkingId} WHERE id = ${userId}`);
+      await client.query(`COMMIT`);
+      console.log('Parking data has been updated successfully');
+    } catch (err) {
+      console.log(err);
+      await client.query(`ROLLBACK`);
+      console.log('Update failed, data has been rolled back')
+    }
+  }
+
+  async function populateParking() {
+    try {
+      for (let i = 1; i <= 6; i++) {
+        await client.query(
+          `INSERT INTO parking_table (parking_number, is_parked, timeleft) VALUES ('parking ${i}', false, '00:00:00')`
+        );
+      }
+      console.log("Parking data has been added successfully");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  return {
+    getAllParking,
+    populateParking,
+    addUser,
+    createParking,
+    updateParking
+  };
+}
+
+export default theParkers;
+
+/* 
+CREATE TABLE user_table (
+    id SERIAL PRIMARY KEY, 
+    name TEXT, 
+    surname TEXT, 
+    licence_plate TEXT,
+    parking_id INTEGER REFERENCES parking_table(parking_id)
+);
+
+CREATE TABLE parking_table (
+    parking_id SERIAL PRIMARY KEY, 
+    is_parked BOOLEAN, 
+    timeleft TIME,
+    parking_number TEXT
+);*/
+
+/* 
     const RegExp = /^[A-Za-z]+$/;
     async function setEmployee(user) {
         employeeName = user.trim()
@@ -139,6 +232,4 @@ function theParkers(db) {
         deleteData
     }
 
-}
-
-export default theParkers;
+*/

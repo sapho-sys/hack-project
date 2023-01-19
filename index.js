@@ -8,13 +8,33 @@ import flash from "express-flash";
 import dataFactory from "./services/data-factory.js";
 import pgPromise from "pg-promise";
 
-const pgp = pgPromise({});
+//const pgp = pgPromise({});
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://postgres:sap123@localhost:5432/her_waiters';
+//const connectionString = process.env.DATABASE_URL || 'postgresql://superuser:joshuabode@localhost:5432/hackdb';
+import pkg from 'pg';
+const { Client } = pkg;
+//const { Client } = require('pg');
 
-const config = { 
+const client = new Client({
+  host: 'localhost',
+  port: 5432,
+  user: 'joshuabode',
+  
+  database: 'hackdb'
+});
+
+client.connect((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("connected to the database");
+  }
+});
+
+
+/*const config = { 
 	connectionString
-}
+}*/
 
 if (process.env.NODE_ENV == 'production') {
 	config.ssl = { 
@@ -22,11 +42,19 @@ if (process.env.NODE_ENV == 'production') {
 	}
 }
 
-const db = pgp(config);
-const regiesDB = dataFactory(db);
+//const db = pgp(config);
+const regiesDB = dataFactory(client);
 
-let employeeRouter = carsRouters(regiesDB,db);
+//let employeeRouter = carsRouters(regiesDB,db);
+//let user = { name: "Joshua", surname: "Bode" , licence_plate: "CA11111" , parking_id: 1}
 
+//regiesDB.addUser(user);
+//regiesDB.createParking();
+//regiesDB.populateParking();
+
+console.log("test")
+console.log(regiesDB.getAllParking())
+regiesDB.updateParking(6, true, '01:00:00', 5);
 //config express as middleware
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
@@ -51,11 +79,10 @@ app.use(session({
 app.use(flash());
 
 //ROUTES FOR INBOUND/OUTBOUND DATA
-app.get('/', employeeRouter.defaultRoute);
-app.post('/employee',employeeRouter.postDriver);
-app.get('/employee/:username', employeeRouter.getDriver);
-app.post('/slots', employeeRouter.postSlot);
-app.get('/parkings', employeeRouter.getSlot);
+//app.get('/', employeeRouter.defaultRoute);
+//app.post('/employee',employeeRouter.postDriver);
+//app.get('/employee/:username', employeeRouter.getDriver);
+//app.post('/slots', employeeRouter.postSlot);
 
 
 
