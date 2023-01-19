@@ -78,11 +78,7 @@ app.use(session({
 // initialise the flash middleware
 app.use(flash());
 
-//ROUTES FOR INBOUND/OUTBOUND DATA
-//app.get('/', employeeRouter.defaultRoute);
-//app.post('/employee',employeeRouter.postDriver);
-//app.get('/employee/:username', employeeRouter.getDriver);
-//app.post('/slots', employeeRouter.postSlot);
+
 
 
 
