@@ -1,10 +1,11 @@
 import express from "express";
 const app = express();
 import session from "express-session";
+import exphbs from "express-handlebars";
 import bodyParser from "body-parser";
 import carsRouters from "./routes/route.js";
 import flash from "express-flash";
-import dataFactory from "./data-factory.js";
+import dataFactory from "./services/data-factory.js";
 import pgPromise from "pg-promise";
 
 const pgp = pgPromise({});
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV == 'production') {
 const db = pgp(config);
 const regiesDB = dataFactory(db);
 
-let employeeRouter = waitersRouters(regiesDB,db);
+let employeeRouter = carsRouters(regiesDB,db);
 
 //config express as middleware
 app.engine('handlebars', exphbs.engine());
@@ -50,6 +51,11 @@ app.use(session({
 app.use(flash());
 
 //ROUTES FOR INBOUND/OUTBOUND DATA
+app.get('/', employeeRouter.defaultRoute);
+app.post('/employee',employeeRouter.postDriver);
+app.get('/employee/:username', employeeRouter.getDriver);
+app.post('/slots', employeeRouter.postSlot);
+
 
 
 
