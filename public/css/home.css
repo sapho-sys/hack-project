@@ -1,0 +1,376 @@
+/*** SHOWCASE ***/
+/** SKWEY background color **/
+
+.showcase {
+    background-color: #457b9d;
+    height: 300px;
+    overflow: visible;
+    position: relative;
+    opacity: 0.99;
+ }
+ 
+ .showcase::after {
+    content: '';
+    position: absolute;
+    background-color: #f2f2f2;
+    height: 75px;
+    bottom: -52.5px;
+    right: 0;
+    left: 0;
+    transform: skewY(-4deg);
+    -webkit-transform: skewY(-4deg);
+    -moz-transform: skewY(-4deg);
+    -ms-transform: skewY(-4deg);
+ }
+ 
+ /*** SLOGAN FONT ***/
+ 
+ .slogan {
+    color: #ffd60a;
+    align-items: center;
+    text-align: center;
+ }
+ 
+ .slogan1 {
+    font-family: 'Satisfy', cursive;
+    margin: 17.5% 0 0 0;
+    font-size: 55px;
+    position: relative;
+    z-index: 1;
+ }
+ 
+ .slogan2 {
+    font-family: 'Satisfy', cursive;
+    margin: 5px 0 7.5px 0;
+    font-size: 45px;
+    z-index: 1;
+    position: relative;
+ }
+ 
+ .slogan .btn {
+    margin: 20px;
+    font-size: 20px;
+    z-index: 1;
+    position: relative;
+ }
+ 
+ .showcase .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: auto;
+    width: 80%;
+ }
+ 
+ .showcase .card {
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    box-shadow: none;
+    position: relative;
+    z-index: 50;
+    height: 85%;
+ }
+ 
+ /** CAROUSEL **/
+ /** SLIDESHOW CONTAINER **/
+ 
+ .slideshow-container {
+    position: relative;
+    margin: auto;
+ }
+ 
+ /** Hide the images by default **/
+ 
+ .mySlides {
+    display: none;
+ }
+ 
+ /** Next & previous buttons **/
+ /** Fading animation **/
+ 
+ .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 5s;
+    animation-name: fade;
+    animation-duration: 5s;
+ }
+ 
+ @-webkit-keyframes fade {
+    from {
+       opacity: 0.4;
+    }
+    to {
+       opacity: 1;
+    }
+ }
+ 
+ @keyframes fade {
+    from {
+       opacity: 0.4;
+    }
+    to {
+       opacity: 1;
+    }
+ }
+ 
+ /** SHOWBRIEF **/
+ 
+ .showbrief .flex {
+    width: 80%;
+    padding-top: 75px;
+    padding-bottom: 20px;
+ }
+ 
+ .showbrief .card {
+    padding: 25px 15px;
+    text-align: center;
+    margin: 7.5px;
+    background-color: #457b9d;
+ }
+ 
+ .showbrief p,
+ .showbrief h2 {
+    margin: 5px 0 5px 0;
+    color: #ffd60a;
+ }
+ 
+ .c-small {
+    flex: 1;
+ }
+ 
+ .c-big {
+    flex: 2;
+ }
+ 
+ /*** PERIOD ***/
+ 
+ .the-periods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: auto;
+    width: 85%;
+    margin: 0 auto;
+ }
+ 
+ .wp-text {
+    text-align: center;
+    border-top: 3px #ffd60a solid;
+ }
+ 
+ .wp-text h2 {
+    margin: 12.5px 0;
+ }
+ 
+ .table-periods {
+    text-decoration: none;
+ }
+ 
+ .other-periods {
+    text-align: left;
+    padding: 12.5px;
+ }
+ 
+ span.bold-text {
+    font-weight: bolder;
+    margin: 0 2.5px;
+ }
+ 
+ /*** MEDIA QUERIES ***/
+ 
+ @media screen and (min-width: 1250px) {
+    .slogan .btn:hover {
+       border: 2.5px solid #ffd60a;
+    }
+ }
+ 
+ @media (max-width: 1080px) {
+    .slogan1 {
+       font-size: 50px;
+    }
+ 
+    .slogan2 {
+       font-size: 40px;
+    }
+ }
+ 
+ @media (max-width: 986px) {
+    .slogan1 {
+       font-size: 45px;
+    }
+ 
+    .slogan2 {
+       font-size: 35px;
+    }
+ }
+ 
+ @media screen and (max-width: 896px) {
+    .slogan1 {
+       font-size: 40px;
+    }
+ 
+    .slogan2 {
+       font-size: 30px;
+    }
+ }
+ 
+ @media screen and (max-width: 830px) {
+    .showbrief .flex {
+       width: 90%;
+    }
+ }
+ 
+ @media screen and (max-width: 810px) {
+    .slogan1 {
+       font-size: 35px;
+       margin-top: 20%;
+    }
+ 
+    .slogan2 {
+       font-size: 25px;
+    }
+ }
+ 
+ @media screen and (max-width: 768px) {
+    .showbrief .flex {
+       flex-wrap: wrap;
+    }
+ }
+ 
+ @media screen and (max-width: 720px) {
+    .showcase {
+       height: 500px;
+    }
+ 
+    .showcase .grid {
+       grid-template-columns: 1fr;
+       gap: 10px;
+       height: auto;
+       width: 75%;
+    }
+ 
+    .slideshow-container .card {
+       margin: 0 auto;
+    }
+ 
+    .slogan1 {
+       font-size: 40px;
+       margin-top: 5%;
+    }
+ 
+    .slogan2 {
+       font-size: 30px;
+    }
+ 
+    .slogan .btn:hover {
+       border: 2.5px solid #ffd60a;
+    }
+ 
+    .showbrief .flex {
+       flex-direction: column;
+       padding-top: 70px;
+    }
+ }
+ 
+ @media screen and (max-width: 600px) {
+    .showcase {
+       height: 475px;
+    }
+ 
+    .the-periods {
+       grid-template-columns: 1fr;
+       gap: 5px;
+       width: 90%;
+    }
+ }
+ 
+ @media screen and (max-width: 480px) {
+    .showcase {
+       height: 450px;
+    }
+ 
+    .slideshow-container .card {
+       z-index: 0;
+    }
+ 
+    .slogan1 {
+       font-size: 35px;
+    }
+ 
+    .slogan2 {
+       font-size: 25px;
+    }
+ 
+    .slogan .btn:hover {
+       border: 2.5px solid #f2f2f2;
+    }
+ 
+    .showbrief .flex {
+       padding-top: 50px;
+    }
+ }
+ 
+ @media screen and (max-width: 410px) {
+    .showcase {
+       height: 410px;
+    }
+ 
+    .showcase .grid {
+       width: 90%;
+    }
+ 
+    .slogan1 {
+       font-size: 35px;
+    }
+ 
+    .slogan2 {
+       font-size: 25px;
+    }
+ 
+    .slogan .btn:hover {
+       border: 2.5px solid #ffd60a;
+    }
+ 
+    .showbrief .flex {
+       padding-top: 50px;
+    }
+ }
+ 
+ @media screen and (max-width: 350px) {
+    .showcase {
+       height: 390px;
+    }
+    .slogan1 {
+       font-size: 30px;
+    }
+ 
+    .slogan2 {
+       font-size: 20px;
+    }
+ 
+    .slogan .btn:hover {
+       border: 2.5px solid #f2f2f2;
+    }
+ 
+    .the-periods {
+       width: 100%;
+    }
+ }
+ 
+ @media screen and (max-width: 306px) {
+    .slogan1 {
+       font-size: 25px;
+    }
+ 
+    .slogan2 {
+       font-size: 15px;
+    }
+ 
+    .slogan .btn:hover {
+       border: 2.5px solid #f2f2f2;
+    }
+ 
+    .showbrief .flex {
+       padding-top: 42.5px;
+    }
+ }

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waiter's Availability App</title>
+    <link rel="shortcut icon" href="./images/" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Calligraffitti" />
+    <link rel="stylesheet" href="/css/utils.css" />
+    <link rel="stylesheet" href="/css/style-admin.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9a9a378fa5.js" crossorigin="anonymous"></script>
+
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+    <section class="header">
+        <div id="header" class="container">
+
+            <a href="#"><strong>Waiter's Availability App</strong></a>
+
+            <div>
+                <ul id="navbar">
+                    <li><a href="/">Home</a></li>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                </ul>
+            </div>
+
+            <div id="mobile">
+                <i id="bar" class="fa-solid fa-align-right"></i>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="showcase">
+        <div class="row">
+            <section class="period">
+                <div class="the-periods">
+                    <div class="table-periods">
+                        <h2 class="title">WAITER'S WEEKLY SCHEDULE</h2>
+
+                        <div class="waiterlist">
+
+
+                            <form action="/waitername" method="post">
+                                <h4>Scheduled Waiter's:</h4>
+                                <select name="waiter" class="drop">
+
+                                    <option href="/expenses">delete-waiter</option>
+
+                                    {{#each waiterNames}}
+                                    <option value="{{waiter_name}}">{{waiter_name}}</option>
+                                    {{/each}}
+
+                                </select>
+                                <br><br>
+                                <button type="submit" class="fa fa-trash" style="color:red;"></button>
+                            </form>
+                            <br>
+
+                            {{#if messages.success}}
+                            <div class="errors">
+                                <h4 class="success">{{messages.success}}</h4>
+                            </div>
+                            {{/if}}
+                        </div>
+
+
+                        <table id="display" class="styled-table">
+
+                            <thead>
+                                 
+                                   
+                                    
+                                
+                                
+                                <tr>
+                                    <th ><i class="fa fa-edit" style="font-size:30px"></i></th>
+                                    {{#each Addcolor}}
+                                    <th class="{{color}}" value="{{id}}">{{shifts}}</th>
+                                    {{/each}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                    <td>
+                                         {{#each waiterNames}} 
+                                        <a href="/waiters/{{waiter_name}}">{{waiter_name}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#each Sunday}}
+                                        <a >{{this}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#each Monday}}
+                                        <a  name="waiter" value="{{this}}">{{this}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#each Tuesday}}
+                                        <a  name="waiter" value="{{this}}">{{this}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+
+                                    <td>
+                                        {{#each Wednesday}}
+                                        <a  name="waiter" value="{{this}}">{{this}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#each Thursday}}
+                                        <a  name="waiter" value="{{this}}">{{this}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#each Friday}}
+                                        <a  name="waiter" value="{{this}}">{{this}}</a>
+                                        <br><br>
+                                        {{/each}}
+                                    </td>
+                                    <td>
+                                        {{#each Saturday}}
+                                        <a  name="waiter" value="{{this}}">{{this}}</a>
+                                        {{/each}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </section>
+
+
+
+
+        </div>
+
+
+        
+
+
+    </section>
+
+    </div>
+
+
+    <script src="/js/setimeout.js"></script>
+
+</body>
+
+</html>

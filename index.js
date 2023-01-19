@@ -55,6 +55,7 @@ app.get('/', employeeRouter.defaultRoute);
 app.post('/employee',employeeRouter.postDriver);
 app.get('/employee/:username', employeeRouter.getDriver);
 app.post('/slots', employeeRouter.postSlot);
+app.get('/parkings', employeeRouter.getSlot);
 
 
 

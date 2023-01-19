@@ -14,11 +14,7 @@ function carsRouters(dataFactory, db){
     }
 
     async function getSlot(req, res){
-
-        res.render('admin',{
-            
-        })
-
+        res.render('admin')
     }
 
 

@@ -1,0 +1,245 @@
+body {
+    background: #457b9d;
+ }
+ 
+ /*** TABLE ***/
+ 
+ th,
+ td {
+    text-align: center;
+    padding: 8px;
+ }
+ 
+ /*** ADD MEMBER DETAILS ***/
+ 
+ .cont-box {
+    width: 67.5%;
+    margin: 20px auto;
+    background: #f2f2f2;
+    padding: 25px 30px;
+    border-bottom-right-radius: 99px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+ }
+ 
+ .cont-box .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 35px;
+ }
+ 
+ .cont-box .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 40px;
+    border-radius: 5px;
+    background: #457b9d;
+ }
+ 
+ .content {
+    margin-top: 25px;
+ }
+ 
+ .content form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+ }
+ 
+ form .user-details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+ }
+ 
+ form .input-box span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+ }
+ 
+ .user-details .input-box input,
+ .address input,
+ .input-box select {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+ }
+ 
+ .input-box select {
+    width: 75%;
+    padding: 7.5px;
+    background: white;
+ }
+ 
+ .address input {
+    margin: 7.5px 0;
+ }
+ 
+ .address {
+    margin-bottom: 15px;
+ }
+ 
+ .user-details .input-box input:focus,
+ .address input:focus {
+    border-color: #ffd60a;
+ }
+ 
+ form .button button {
+    font-size: 16px;
+    font-weight: 700;
+    min-width: 85px;
+    margin: 5px 5px 10px 10px;
+    background: #457b9d;
+    border-radius: 5px;
+    padding: 12.5px 20px;
+    border: 2.5px solid #457b9d;
+    color: #f2f2f2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ }
+ 
+ .waiterlist {
+    margin-left: auto;
+    margin-right: auto;
+    width:20%;
+    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+ }
+ .drop{
+   width: 100%;
+   height: 30px;
+   
+ }
+ 
+ 
+ 
+ /*** ADD MEMBER DETAILS ***/
+ 
+ .members-table {
+    overflow-x: auto;
+ }
+
+ .title{
+   margin-left: auto;
+   margin-right: auto;
+   width: 30%;
+ }
+ 
+ .members-table .styled-table {
+    background: #f2f2f2;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #f2f2f2;
+    table-layout: fixed;
+    white-space: nowrap;
+ }
+ 
+ .members-table table:hover {
+    cursor: pointer;
+ }
+ 
+ .members-table .styled-table td {
+    color: #f2f2f2;
+    text-align: center;
+ }
+ 
+ .members-table .styled-table .column {
+    text-align: left;
+ }
+ 
+ .members-table .styled-table th:nth-child(1) {
+    width: 290px;
+ }
+ 
+ .members-table .styled-table th:nth-child(2) {
+    width: 90px;
+ }
+ 
+ .members-table .styled-table th:nth-child(3),
+ .members-table .styled-table th:nth-child(5),
+ .members-table .styled-table th:nth-child(6) {
+    width: 185px;
+ }
+ 
+ .members-table .styled-table th:nth-child(4) {
+    width: 170px;
+ }
+ 
+ /*** FOOTER ***/
+ 
+ footer {
+    border-top: 3.5px #ffd60a solid;
+ }
+ 
+ /*** MEDIA QUERIES ***/
+ 
+ @media (max-width: 1024px) {
+    .members-table {
+       overflow-x: scroll;
+    }
+ 
+    .members-table::-webkit-scrollbar {
+       height: 5px;
+    }
+ 
+    .cont-box {
+       width: 77.5%;
+    }
+ }
+ 
+ @media (max-width: 800px) {
+    .cont-box {
+       width: 85%;
+    }
+ }
+ 
+ @media (max-width: 650px) {
+    .cont-box {
+       width: 95%;
+    }
+ }
+ 
+ @media (max-width: 584px) {
+    .cont-box {
+       width: 97.5%;
+    }
+ 
+    form .user-details .input-box {
+       margin-bottom: 15px;
+       width: 100%;
+    }
+ 
+    form .category {
+       width: 100%;
+    }
+    
+ }
+
+ /* basic positioning */
+.legend { list-style: none; }
+.legend li { float: left;  }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* your colors */
+.legend .yellowdot { background-color: yellow; }
+.legend .greendot { background-color: green; }
+.legend .reddot { background-color: red; }
+.legend{background-color: aliceblue; width: 18%; border-radius: 5%; }
+
+.user-info{
+   background-color: #f2f2f2;
+   /* margin-left: 50%; */
+   /* margin-right: 50%; */
+}
