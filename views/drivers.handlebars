@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+   
+     <link rel="stylesheet" href="/css/style.css" />
+
+</head>
+<body>
+
+
+     <section class="header">
+        <div id="header" class="container">
+            <a href="#"><strong>Parking Scheduling App</strong></a>
+
+            <div>
+                <ul id="navbar">
+                    {{!-- <li><a class="active" href="/">Home</a></li> --}}
+                    <li><a class="#" href="/admin">Administation</a></li>
+                    <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+                </ul>
+            </div>
+
+            <div id="mobile">
+                <i id="bar" class="fa-solid fa-align-right"></i>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cont-box">
+        <div class="flex">
+            <div class="theDays">
+                <h2>Welcome to the employee scheduling system <strong>{{waiter}}</strong> </h2>
+                <form action="/slot" method="POST">
+                    {{#each driverSlot}}
+                    <div>
+                        <input class="m-2" type="checkbox" name="checkPark" value="{{spaces}}" {{#if
+                            ticked}}checked{{/if}}><span class="m-2 dayText"><strong>{{spaces}}</strong></span>
+                    </div>
+                    {{/each}}
+            </div>
+
+
+            <div class="update-btn">
+                <div class="saveBtn">
+                    <button class="btn myBtn" type="submit" name="button">Save</button>
+                </div>
+                </form>
+            </div><br><br>
+            {{#if messages.error}}
+            <div class="errors">
+                <h4 class="error">{{messages.error}}</h4>
+            </div>
+            {{/if}}
+
+            {{#if messages.success}}
+            <div class="errors">
+                <h4 class="success">{{messages.success}}</h4>
+            </div>
+            {{/if}}
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+    <script src="/js/setimeout.js"></script>
+</body>
+</html>
